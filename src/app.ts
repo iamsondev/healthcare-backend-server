@@ -1,5 +1,5 @@
 import express, { Application, Request, Response } from "express";
-import { IndexRoute } from "./routes";
+import { IndexRoute } from "./app/routes";
 
 const app: Application = express();
 app.use(express.urlencoded({ extended: true }));
