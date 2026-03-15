@@ -1,7 +1,15 @@
 export interface IUpdateDoctorPayload {
   name?: string;
   profilePhoto?: string;
-  address?: string;
   contactNumber?: string;
+  address?: string;
   experience?: number;
+  appointmentFee?: number;
+  qualification?: string;
+  currentWorkingPlace?: string;
+  designation?: string;
+  specialties?: {
+    specialtyId: string;
+    isDeleted?: boolean;
+  }[];
 }
