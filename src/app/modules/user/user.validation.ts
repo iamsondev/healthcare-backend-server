@@ -5,7 +5,7 @@ export const createDoctorZodSchema = z.object({
     .string("Password is required")
     .min(6, "password must be at six character")
     .max(20, "password must be maximum 20 characters"),
-  doctor: {
+  doctor: z.object({
     name: z
       .string("Name is required and must be string")
       .min(5, "minimum 5 characters")
@@ -44,7 +44,7 @@ export const createDoctorZodSchema = z.object({
       .string("Designation is required")
       .min(2, "Designation must be at least 2 characters")
       .max(50, "Designation must be at most 50 characters"),
-  },
+  }),
   specialties: z
     .array(z.uuid(), "Specialties must be an array of strings")
     .min(1, "At least one specialty is required"),
