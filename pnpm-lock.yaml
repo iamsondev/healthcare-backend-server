@@ -26,6 +26,9 @@ importers:
       http-status:
         specifier: ^2.1.0
         version: 2.1.0
+      http-status-codes:
+        specifier: ^2.3.0
+        version: 2.3.0
       pg:
         specifier: ^8.20.0
         version: 8.20.0

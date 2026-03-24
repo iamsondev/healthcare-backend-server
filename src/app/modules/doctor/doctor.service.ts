@@ -1,3 +1,5 @@
+import status from "http-status";
+import AppError from "../../errorHelpers/AppError";
 import { prisma } from "../../lib/prisma";
 import { IUpdateDoctorPayload } from "./doctor.interface";
 
@@ -41,7 +43,7 @@ const updateDoctor = async (id: string, payload: IUpdateDoctorPayload) => {
     },
   });
   if (!doctor) {
-    throw new Error("Doctor Not Found");
+    throw new AppError(status.NOT_FOUND, "Doctor Not Found");
   }
 
   const existingSpecialties = await prisma.doctorSpecialty.findMany({
@@ -95,7 +97,7 @@ const deleteDoctor = async (id: string) => {
     },
   });
   if (!doctor) {
-    throw new Error("Doctor Not Found");
+    throw new AppError(status.NOT_FOUND, "Doctor Not Found");
   }
   const result = await prisma.user.update({
     where: {
